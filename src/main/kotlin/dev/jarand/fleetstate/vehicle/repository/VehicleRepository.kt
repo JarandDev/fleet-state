@@ -9,12 +9,13 @@ class VehicleRepository(private val jdbcTemplate: NamedParameterJdbcTemplate) {
 
     fun saveVehicle(vehicle: Vehicle) {
         jdbcTemplate.update("""
-            INSERT INTO vehicle (id, name, created)
-            VALUES (:id, :name, :created)
+            INSERT INTO vehicle (id, name, type, created)
+            VALUES (:id, :name, :type, :created)
             """.trimIndent(),
             mapOf(
                 "id" to vehicle.id,
                 "name" to vehicle.name,
+                "type" to vehicle.type.name,
                 "created" to vehicle.created.toString()
             )
         )

@@ -7,6 +7,6 @@ import org.springframework.stereotype.Component
 class VehicleResourceAssembler {
 
     fun assemble(vehicle: Vehicle): VehicleResource {
-        return VehicleResource(vehicle.id.toString(), vehicle.name, vehicle.created.toString())
+        return VehicleResource(vehicle.id.toString(), vehicle.name, vehicle.type.name, vehicle.created.toString())
     }
 }

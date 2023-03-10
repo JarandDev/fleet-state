@@ -9,6 +9,6 @@ import org.springframework.stereotype.Component
 class VehicleAssembler(private val idService: IdService, private val timeService: TimeService) {
 
     fun assembleNew(resource: CreateVehicleResource): Vehicle {
-        return Vehicle(idService.vehicleId(), resource.name, timeService.vehicleCreated())
+        return Vehicle(idService.vehicleId(), resource.name, VehicleType.valueOf(resource.type), timeService.vehicleCreated())
     }
 }
