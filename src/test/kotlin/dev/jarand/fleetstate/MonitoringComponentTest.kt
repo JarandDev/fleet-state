@@ -11,37 +11,40 @@ class MonitoringComponentTest : ComponentTest() {
     fun `GET health should return 200 and expected json`() {
         mockMvc.perform(get("/actuator/health"))
                 .andExpect(status().isOk)
-                .andExpect(content().json("""
-                {
-                  "status": "UP",
-                  "groups": [
-                    "liveness",
-                    "readiness"
-                  ]
-                }
-                """.trimIndent(), true))
+                .andExpect(content().json(
+                        """
+                        {
+                          "status": "UP",
+                          "groups": [
+                            "liveness",
+                            "readiness"
+                          ]
+                        }
+                        """.trimIndent(), true))
     }
 
     @Test
     fun `GET health liveness group should return 200 and expected json`() {
         mockMvc.perform(get("/actuator/health/liveness"))
                 .andExpect(status().isOk)
-                .andExpect(content().json("""
-                {
-                  "status": "UP"
-                }
-                """.trimIndent(), true))
+                .andExpect(content().json(
+                        """
+                        {
+                          "status": "UP"
+                        }
+                        """.trimIndent(), true))
     }
 
     @Test
     fun `GET health readiness group should return 200 and expected json`() {
         mockMvc.perform(get("/actuator/health/readiness"))
                 .andExpect(status().isOk)
-                .andExpect(content().json("""
-                {
-                  "status": "UP"
-                }
-                """.trimIndent(), true))
+                .andExpect(content().json(
+                        """
+                        {
+                          "status": "UP"
+                        }
+                        """.trimIndent(), true))
     }
 
     @Test
