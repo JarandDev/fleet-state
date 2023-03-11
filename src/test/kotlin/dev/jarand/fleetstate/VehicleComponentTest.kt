@@ -1,7 +1,7 @@
 package dev.jarand.fleetstate
 
 import com.ninjasquad.springmockk.MockkBean
-import dev.jarand.fleetstate.componenttest.ComponentTest
+import dev.jarand.fleetstate.config.ComponentTest
 import dev.jarand.fleetstate.id.IdService
 import dev.jarand.fleetstate.time.TimeService
 import io.mockk.every

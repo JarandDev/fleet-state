@@ -1,4 +1,4 @@
-package dev.jarand.fleetstate.componenttest
+package dev.jarand.fleetstate.config
 
 import org.junit.jupiter.api.extension.ExtendWith
 import org.springframework.beans.factory.annotation.Autowired

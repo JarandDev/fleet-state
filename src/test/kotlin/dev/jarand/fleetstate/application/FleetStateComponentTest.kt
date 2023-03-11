@@ -1,6 +1,6 @@
-package dev.jarand.fleetstate
+package dev.jarand.fleetstate.application
 
-import dev.jarand.fleetstate.componenttest.ComponentTest
+import dev.jarand.fleetstate.config.ComponentTest
 import org.junit.jupiter.api.Test
 
 class FleetStateComponentTest : ComponentTest() {
