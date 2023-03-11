@@ -17,4 +17,8 @@ class TimeService(private val instantSupplier: () -> Instant) {
     fun stationCreated(): Instant {
         return instantSupplier.invoke()
     }
+
+    fun transitionCreated(): Instant {
+        return instantSupplier.invoke()
+    }
 }
