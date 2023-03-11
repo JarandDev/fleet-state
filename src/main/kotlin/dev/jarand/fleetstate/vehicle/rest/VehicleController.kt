@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 @RequestMapping("vehicle")
 class VehicleController(
-        private val vehicleAssembler: VehicleAssembler,
-        private val vehicleService: VehicleService,
-        private val vehicleResourceAssembler: VehicleResourceAssembler
+    private val vehicleAssembler: VehicleAssembler,
+    private val vehicleService: VehicleService,
+    private val vehicleResourceAssembler: VehicleResourceAssembler
 ) {
 
     @PostMapping

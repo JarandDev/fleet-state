@@ -33,25 +33,26 @@ class VehicleComponentTest : ComponentTest() {
         every { timeService.vehicleCreated() } returns Instant.parse("2023-03-10T21:09:38.973123700Z")
 
         mockMvc.perform(
-                post("/vehicle")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(
-                                """
-                                {
-                                  "name": "SL18-401",
-                                  "type": "TRAM"
-                                }
-                                """.trimIndent()))
-                .andExpect(status().isOk)
-                .andExpect(content().json(
-                        """
-                        {
-                          "id": "e5d86d40-58d7-45a9-81ee-4187d6f3e625",
-                          "name": "SL18-401",
-                          "type": "TRAM",
-                          "created": "2023-03-10T21:09:38.973123700Z"
-                        }
-                        """.trimIndent(), true))
+            post("/vehicle").contentType(MediaType.APPLICATION_JSON).content(
+                """
+                {
+                  "name": "SL18-401",
+                  "type": "TRAM"
+                }
+                """.trimIndent()
+            )
+        ).andExpect(status().isOk).andExpect(
+            content().json(
+                """
+                {
+                  "id": "e5d86d40-58d7-45a9-81ee-4187d6f3e625",
+                  "name": "SL18-401",
+                  "type": "TRAM",
+                  "created": "2023-03-10T21:09:38.973123700Z"
+                }
+                """.trimIndent(), true
+            )
+        )
 
         assertPersisted("e5d86d40-58d7-45a9-81ee-4187d6f3e625")
     }

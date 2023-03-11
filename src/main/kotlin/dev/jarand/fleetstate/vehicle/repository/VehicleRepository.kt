@@ -8,7 +8,8 @@ import org.springframework.stereotype.Repository
 class VehicleRepository(private val jdbcTemplate: NamedParameterJdbcTemplate) {
 
     fun saveVehicle(vehicle: Vehicle) {
-        jdbcTemplate.update("""
+        jdbcTemplate.update(
+            """
             INSERT INTO vehicle (id, name, type, created)
             VALUES (:id, :name, :type, :created)
             """.trimIndent(),
