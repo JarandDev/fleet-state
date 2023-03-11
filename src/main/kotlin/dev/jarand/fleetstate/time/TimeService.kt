@@ -13,4 +13,8 @@ class TimeService(private val instantSupplier: () -> Instant) {
     fun depotCreated(): Instant {
         return instantSupplier.invoke()
     }
+
+    fun stationCreated(): Instant {
+        return instantSupplier.invoke()
+    }
 }

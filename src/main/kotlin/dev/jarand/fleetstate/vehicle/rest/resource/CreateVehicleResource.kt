@@ -1,3 +1,5 @@
 package dev.jarand.fleetstate.vehicle.rest.resource
 
-data class CreateVehicleResource(val name: String, val type: String)
+import jakarta.validation.constraints.NotBlank
+
+data class CreateVehicleResource(@NotBlank val name: String, @NotBlank val type: String)

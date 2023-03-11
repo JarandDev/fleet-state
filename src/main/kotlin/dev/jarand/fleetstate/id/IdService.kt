@@ -13,4 +13,8 @@ class IdService(private val uuidSupplier: () -> UUID) {
     fun depotId(): UUID {
         return uuidSupplier.invoke()
     }
+
+    fun stationId(): UUID {
+        return uuidSupplier.invoke()
+    }
 }
