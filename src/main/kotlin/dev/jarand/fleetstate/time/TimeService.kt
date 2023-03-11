@@ -9,4 +9,8 @@ class TimeService(private val instantSupplier: () -> Instant) {
     fun vehicleCreated(): Instant {
         return instantSupplier.invoke()
     }
+
+    fun depotCreated(): Instant {
+        return instantSupplier.invoke()
+    }
 }

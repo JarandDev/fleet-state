@@ -16,7 +16,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
 import java.time.Instant
 import java.util.*
 
-class VehicleComponentTest : ComponentTest() {
+class DepotComponentTest : ComponentTest() {
 
     @MockkBean
     lateinit var idService: IdService
@@ -28,16 +28,15 @@ class VehicleComponentTest : ComponentTest() {
     lateinit var jdbcTemplate: NamedParameterJdbcTemplate
 
     @Test
-    fun `POST vehicle should save vehicle in database and return 200 with expected json`() {
-        every { idService.vehicleId() } returns UUID.fromString("e5d86d40-58d7-45a9-81ee-4187d6f3e625")
-        every { timeService.vehicleCreated() } returns Instant.parse("2023-03-10T21:09:38.973123700Z")
+    fun `POST depot should save depot in database and return 200 with expected json`() {
+        every { idService.depotId() } returns UUID.fromString("c77f459a-4f07-4920-9e5e-2200d566c8d1")
+        every { timeService.depotCreated() } returns Instant.parse("2023-03-11T08:03:02.719630800Z")
 
         mockMvc.perform(
-            post("/vehicle").contentType(MediaType.APPLICATION_JSON).content(
+            post("/depot").contentType(MediaType.APPLICATION_JSON).content(
                 """
                 {
-                  "name": "SL18-401",
-                  "type": "TRAM"
+                  "name": "BRYN Hall A"
                 }
                 """.trimIndent()
             )
@@ -45,22 +44,20 @@ class VehicleComponentTest : ComponentTest() {
             content().json(
                 """
                 {
-                  "id": "e5d86d40-58d7-45a9-81ee-4187d6f3e625",
-                  "name": "SL18-401",
-                  "type": "TRAM",
-                  "created": "2023-03-10T21:09:38.973123700Z"
+                  "id": "c77f459a-4f07-4920-9e5e-2200d566c8d1",
+                  "name": "BRYN Hall A",
+                  "created": "2023-03-11T08:03:02.719630800Z"
                 }
                 """.trimIndent(), true
             )
         )
 
         val exists = jdbcTemplate.queryForObject(
-            "SELECT EXISTS(SELECT * FROM vehicle WHERE id = :id AND name = :name AND type = :type AND created = :created)",
+            "SELECT EXISTS(SELECT * FROM depot WHERE id = :id AND name = :name AND created = :created)",
             mapOf(
-                "id" to "e5d86d40-58d7-45a9-81ee-4187d6f3e625",
-                "name" to "SL18-401",
-                "type" to "TRAM",
-                "created" to "2023-03-10T21:09:38.973123700Z"
+                "id" to "c77f459a-4f07-4920-9e5e-2200d566c8d1",
+                "name" to "BRYN Hall A",
+                "created" to "2023-03-11T08:03:02.719630800Z"
             ),
             Boolean::class.java
         )
