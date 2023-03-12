@@ -1,0 +1,284 @@
+{
+  "info": {
+    "_postman_id": "0a406b5e-97b8-400a-a176-6ee348166bf2",
+    "name": "Fleet State",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "4850057"
+  },
+  "item": [
+    {
+      "name": "Create vehicle",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"SL18-401\",\r\n    \"type\": \"TRAM\"\r\n}\r\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/v1/fleet-state/vehicle",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "v1",
+            "fleet-state",
+            "vehicle"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create station",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"Oslo Sentralstasjon\"\r\n}\r\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/v1/fleet-state/station",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "v1",
+            "fleet-state",
+            "station"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create depot",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"Holtet Base A\"\r\n}\r\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/v1/fleet-state/depot",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "v1",
+            "fleet-state",
+            "depot"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Transition vehicle to station",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"vehicleId\": \"{{vehicleId}}\",\r\n    \"stationId\": \"{{stationId}}\"\r\n}\r\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/v1/fleet-state/transition/vehicle-to-station",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "v1",
+            "fleet-state",
+            "transition",
+            "vehicle-to-station"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Transition vehicle from station",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"vehicleId\": \"{{vehicleId}}\",\r\n    \"stationId\": \"{{stationId}}\"\r\n}\r\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/v1/fleet-state/transition/vehicle-from-station",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "v1",
+            "fleet-state",
+            "transition",
+            "vehicle-from-station"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Transition vehicle to depot",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"vehicleId\": \"{{vehicleId}}\",\r\n    \"depotId\": \"{{depotId}}\"\r\n}\r\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/v1/fleet-state/transition/vehicle-to-depot",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "v1",
+            "fleet-state",
+            "transition",
+            "vehicle-to-depot"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Transition vehicle from depot",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"vehicleId\": \"{{vehicleId}}\",\r\n    \"depotId\": \"{{depotId}}\"\r\n}\r\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/v1/fleet-state/transition/vehicle-from-depot",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "v1",
+            "fleet-state",
+            "transition",
+            "vehicle-from-depot"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get stationed vehicles state",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/v1/fleet-state/state/stationed-vehicles/{{stationId}}",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "v1",
+            "fleet-state",
+            "state",
+            "stationed-vehicles",
+            "{{stationId}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get parked vehicles state",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/v1/fleet-state/state/parked-vehicles/{{depotId}}",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "v1",
+            "fleet-state",
+            "state",
+            "parked-vehicles",
+            "{{depotId}}"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "vehicleId",
+      "value": "PLACEHOLDER"
+    },
+    {
+      "key": "stationId",
+      "value": "PLACEHOLDER"
+    },
+    {
+      "key": "depotId",
+      "value": "PLACEHOLDER"
+    }
+  ]
+}
