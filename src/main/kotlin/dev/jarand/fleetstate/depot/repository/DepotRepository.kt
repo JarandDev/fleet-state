@@ -1,8 +1,11 @@
 package dev.jarand.fleetstate.depot.repository
 
 import dev.jarand.fleetstate.depot.domain.Depot
+import org.springframework.dao.EmptyResultDataAccessException
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate
 import org.springframework.stereotype.Repository
+import java.time.Instant
+import java.util.*
 
 @Repository
 class DepotRepository(private val jdbcTemplate: NamedParameterJdbcTemplate) {
@@ -19,5 +22,26 @@ class DepotRepository(private val jdbcTemplate: NamedParameterJdbcTemplate) {
                 "created" to depot.created.toString()
             )
         )
+    }
+
+    fun getDepot(id: UUID): Depot? {
+        try {
+            return jdbcTemplate.queryForObject(
+                """
+                SELECT id, name, created
+                FROM depot
+                WHERE id = :id
+                """.trimIndent(),
+                mapOf("id" to id)
+            ) { resultSet, _ ->
+                Depot(
+                    resultSet.getObject("id", UUID::class.java),
+                    resultSet.getString("name"),
+                    Instant.parse(resultSet.getString("created"))
+                )
+            }
+        } catch (ex: EmptyResultDataAccessException) {
+            return null
+        }
     }
 }

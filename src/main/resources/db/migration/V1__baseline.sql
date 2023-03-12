@@ -54,3 +54,30 @@ ALTER TABLE vehicle_depot_transition
 
 CREATE INDEX vehicle_depot_transition_vehicle_id_fkey ON vehicle_depot_transition (vehicle_id);
 CREATE INDEX vehicle_depot_transition_depot_id_fkey ON vehicle_depot_transition (depot_id);
+
+
+CREATE TABLE stationed_vehicle
+(
+    station_id UUID NOT NULL,
+    vehicle_id UUID NOT NULL
+);
+
+ALTER TABLE stationed_vehicle
+    ADD CONSTRAINT fk_stationed_vehicle_station FOREIGN KEY (station_id) REFERENCES station (id);
+ALTER TABLE stationed_vehicle
+    ADD CONSTRAINT fk_stationed_vehicle_vehicle FOREIGN KEY (vehicle_id) REFERENCES vehicle (id);
+
+CREATE INDEX stationed_vehicle_station_idx ON stationed_vehicle (station_id);
+
+CREATE TABLE parked_vehicle
+(
+    depot_id   UUID NOT NULL,
+    vehicle_id UUID NOT NULL
+);
+
+ALTER TABLE parked_vehicle
+    ADD CONSTRAINT fk_parked_vehicle_depot FOREIGN KEY (depot_id) REFERENCES depot (id);
+ALTER TABLE parked_vehicle
+    ADD CONSTRAINT fk_parked_vehicle_vehicle FOREIGN KEY (vehicle_id) REFERENCES vehicle (id);
+
+CREATE INDEX parked_vehicle_depot_idx ON parked_vehicle (depot_id);

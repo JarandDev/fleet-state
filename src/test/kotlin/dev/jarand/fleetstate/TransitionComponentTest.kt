@@ -38,7 +38,7 @@ class TransitionComponentTest : ComponentTest() {
                 "id" to UUID.fromString("6a69b439-b5b8-4c9d-9268-ec4ea7061d47"),
                 "name" to "SLFA187-3001",
                 "type" to VehicleType.BUS.name,
-                "created" to Instant.parse("2023-03-11T11:15:14.962102700Z")
+                "created" to Instant.parse("2023-03-11T11:15:14.962102700Z").toString()
             )
         )
         jdbcTemplate.update(
@@ -46,7 +46,7 @@ class TransitionComponentTest : ComponentTest() {
             mapOf(
                 "id" to UUID.fromString("d67060bf-bbe7-484f-ad87-a300eac14c93"),
                 "name" to "Oslo Sentralstasjon",
-                "created" to Instant.parse("2023-03-11T11:15:19.965344Z")
+                "created" to Instant.parse("2023-03-11T11:15:19.965344Z").toString()
             )
         )
         jdbcTemplate.update(
@@ -54,7 +54,7 @@ class TransitionComponentTest : ComponentTest() {
             mapOf(
                 "id" to UUID.fromString("74feeff0-e26a-4713-90ba-fd04f94ce008"),
                 "name" to "BRYN Hall A",
-                "created" to Instant.parse("2023-03-11T11:25:32.934185300Z")
+                "created" to Instant.parse("2023-03-11T11:25:32.934185300Z").toString()
             )
         )
     }
